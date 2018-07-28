@@ -781,7 +781,7 @@ namespace NVelocity.Runtime
 		/// </summary>
 		/// <param name="level">log level</param>
 		/// <param name="message">message to log</param>
-		private void Log(LogLevel level, Object message)
+		public void Log(LogLevel level, Object message)
 		{
             System.Diagnostics.Debug.WriteLine(message);
 // 			String output = message.ToString();
@@ -797,7 +797,7 @@ namespace NVelocity.Runtime
 		/// <param name="message">message to log</param>
 		public void Warn(Object message)
 		{
-			Log(LogLevel.Warn, message);
+			this.Log(LogLevel.Warn, message);
 		}
 
 		/// <summary>
@@ -806,7 +806,7 @@ namespace NVelocity.Runtime
 		/// <param name="message">message to log</param>
 		public void Info(Object message)
 		{
-			Log(LogLevel.Info, message);
+		    this.Log(LogLevel.Info, message);
 		}
 
 		/// <summary>
