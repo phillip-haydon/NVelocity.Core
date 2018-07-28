@@ -783,11 +783,12 @@ namespace NVelocity.Runtime
 		/// <param name="message">message to log</param>
 		private void Log(LogLevel level, Object message)
 		{
+            System.Diagnostics.Debug.WriteLine(message);
 // 			String output = message.ToString();
 
 			// just log it, as we are guaranteed now to have some
 			// kind of logger - save the if()
-//			logSystem.LogVelocityMessage(level, output);
+			//logSystem.LogVelocityMessage(level, output);
 		}
 
 		/// <summary>
