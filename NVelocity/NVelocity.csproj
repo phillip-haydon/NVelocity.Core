@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CastleKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Runtime\Defaults\directive.properties" />
+    <EmbeddedResource Include="Runtime\Defaults\nvelocity.properties" />
+  </ItemGroup>
+
+</Project>
