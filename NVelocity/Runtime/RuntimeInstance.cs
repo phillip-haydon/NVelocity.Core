@@ -21,7 +21,7 @@ namespace NVelocity.Runtime
 	using System.Reflection;
 	using Commons.Collections;
 	using Directive;
-	using Log;
+	using NVelocity.Runtime.Log;
 	using NVelocity.Exception;
 	using NVelocity.Runtime.Parser.Node;
 	using NVelocity.Util.Introspection;
@@ -781,7 +781,7 @@ namespace NVelocity.Runtime
 		/// </summary>
 		/// <param name="level">log level</param>
 		/// <param name="message">message to log</param>
-		public void Log(LogLevel level, Object message)
+		private void Log(LogLevel level, Object message)
 		{
             System.Diagnostics.Debug.WriteLine(message);
 // 			String output = message.ToString();
@@ -797,7 +797,7 @@ namespace NVelocity.Runtime
 		/// <param name="message">message to log</param>
 		public void Warn(Object message)
 		{
-			this.Log(LogLevel.Warn, message);
+			Log(LogLevel.Warn, message);
 		}
 
 		/// <summary>
@@ -806,7 +806,7 @@ namespace NVelocity.Runtime
 		/// <param name="message">message to log</param>
 		public void Info(Object message)
 		{
-		    this.Log(LogLevel.Info, message);
+			Log(LogLevel.Info, message);
 		}
 
 		/// <summary>
