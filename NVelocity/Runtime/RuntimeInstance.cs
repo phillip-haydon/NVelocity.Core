@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using NVelocity.Runtime.Log;
+
 namespace NVelocity.Runtime
 {
 	using System;
@@ -21,7 +23,6 @@ namespace NVelocity.Runtime
 	using System.Reflection;
 	using Commons.Collections;
 	using Directive;
-	using NVelocity.Runtime.Log;
 	using NVelocity.Exception;
 	using NVelocity.Runtime.Parser.Node;
 	using NVelocity.Util.Introspection;
