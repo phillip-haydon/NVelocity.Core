@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using NVelocity.Runtime.Log;
-
 namespace NVelocity.Runtime
 {
 	using System;
@@ -23,56 +21,56 @@ namespace NVelocity.Runtime
 	using System.Reflection;
 	using Commons.Collections;
 	using Directive;
-	using NVelocity.Exception;
-	using NVelocity.Runtime.Parser.Node;
-	using NVelocity.Util.Introspection;
+	using Parser.Node;
+	using Util.Introspection;
 	using Resource;
 	using Util;
+    using LogLevel = Log.LogLevel;
 
-	/// <summary> 
-	/// This is the Runtime system for Velocity. It is the
-	/// single access point for all functionality in Velocity.
-	/// It adheres to the mediator pattern and is the only
-	/// structure that developers need to be familiar with
-	/// in order to get Velocity to perform.
-	/// 
-	/// The Runtime will also cooperate with external
-	/// systems like Turbine. Runtime properties can
-	/// set and then the Runtime is initialized.
-	/// 
-	/// Turbine for example knows where the templates
-	/// are to be loaded from, and where the velocity
-	/// log file should be placed.
-	/// 
-	/// So in the case of Velocity cooperating with Turbine
-	/// the code might look something like the following:
-	/// 
-	/// <code>
-	/// Runtime.setProperty(Runtime.FILE_RESOURCE_LOADER_PATH, templatePath);
-	/// Runtime.setProperty(Runtime.RUNTIME_LOG, pathToVelocityLog);
-	/// Runtime.init();
-	/// </code>
-	/// 
-	/// <pre>
-	/// -----------------------------------------------------------------------
-	/// N O T E S  O N  R U N T I M E  I N I T I A L I Z A T I O N
-	/// -----------------------------------------------------------------------
-	/// Runtime.init()
-	///
-	/// If Runtime.init() is called by itself the Runtime will
-	/// initialize with a set of default values.
-	/// -----------------------------------------------------------------------
-	/// Runtime.init(String/Properties)
-	/// 
-	/// In this case the default velocity properties are layed down
-	/// first to provide a solid base, then any properties provided
-	/// in the given properties object will override the corresponding
-	/// default property.
-	/// -----------------------------------------------------------------------
-	/// </pre>
-	/// 
-	/// </summary>
-	public class RuntimeInstance : IRuntimeServices
+    /// <summary> 
+    /// This is the Runtime system for Velocity. It is the
+    /// single access point for all functionality in Velocity.
+    /// It adheres to the mediator pattern and is the only
+    /// structure that developers need to be familiar with
+    /// in order to get Velocity to perform.
+    /// 
+    /// The Runtime will also cooperate with external
+    /// systems like Turbine. Runtime properties can
+    /// set and then the Runtime is initialized.
+    /// 
+    /// Turbine for example knows where the templates
+    /// are to be loaded from, and where the velocity
+    /// log file should be placed.
+    /// 
+    /// So in the case of Velocity cooperating with Turbine
+    /// the code might look something like the following:
+    /// 
+    /// <code>
+    /// Runtime.setProperty(Runtime.FILE_RESOURCE_LOADER_PATH, templatePath);
+    /// Runtime.setProperty(Runtime.RUNTIME_LOG, pathToVelocityLog);
+    /// Runtime.init();
+    /// </code>
+    /// 
+    /// <pre>
+    /// -----------------------------------------------------------------------
+    /// N O T E S  O N  R U N T I M E  I N I T I A L I Z A T I O N
+    /// -----------------------------------------------------------------------
+    /// Runtime.init()
+    ///
+    /// If Runtime.init() is called by itself the Runtime will
+    /// initialize with a set of default values.
+    /// -----------------------------------------------------------------------
+    /// Runtime.init(String/Properties)
+    /// 
+    /// In this case the default velocity properties are layed down
+    /// first to provide a solid base, then any properties provided
+    /// in the given properties object will override the corresponding
+    /// default property.
+    /// -----------------------------------------------------------------------
+    /// </pre>
+    /// 
+    /// </summary>
+    public class RuntimeInstance : IRuntimeServices
 	{
 		private DefaultTraceListener debugOutput = new DefaultTraceListener();
 
